@@ -1,0 +1,5 @@
+AngularJS 4 大核心特性：
+1. MVC
+2. 模块化
+3. Directive
+4. 双向数据绑定

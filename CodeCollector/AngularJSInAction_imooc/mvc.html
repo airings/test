@@ -1,0 +1,13 @@
+<!doctype html>
+<html ng-app> <!-- AngularJS加载完会先找ng-app，相当于函数的main方法，找到后，那么AngularJS就会认为从这个tag内部的所有子tag都归Angular管。接着他会对这个区域的AngularJS语法进行编译运行-->
+    <head>
+        <meta charset="utf-8">
+    </head>
+    <body>
+        <div>
+            <input ng-model="greeting.text"/> 这里Angular会为我们生成一个数据模型"greeting",这个数据模型是挂在root这个作用域下的，那么就可以在ng-app内部所有的子层标签访问它。
+            <p>{{greeting.text}},Angular</p>
+        </div>
+    </body>
+    <script src="js/angular-1.3.0.js"></script>
+</html>
