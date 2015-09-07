@@ -28,7 +28,13 @@ CSS和HTML在网页中相结合的4中方式：
 优先级：
 	由上到下，由外到内，优先级由低到高。或者一句话，以后加载的为准。但是也存在特殊情况
 	标签选择器<类选择器<id选择器<style属性
-
+	As we mentioned, certain selectors will "override" others if they have a greater specificity value. 
+	ul li p { is more specific CSS than just p {, so when CSS sees tags that are both <p> tags and happen to be inside unordered lists, 
+	it will apply the more specific styling (ul li p {) to the text inside the lists.
+	There are two selectors that are even more specific than nested selectors like the ones above: classes and IDs.
+	Example: the li p { CSS overrides the p { CSS, and the class .list_item overrides the li p { CSS.
+	summary: The more specific your selectors are, the higher importance CSS gives to the styling you apply!
+	
 css代码格式：如果一个属性有多个属性值，那么多个属性值用空格隔开。
 	选择器名称 {
 		属性名：属性值; 
@@ -58,8 +64,22 @@ css代码格式：如果一个属性有多个属性值，那么多个属性值�
 	3.伪元素选择器：其实就是在html中预先定义号的一些选择器，称为伪元素。是CSS的术语。
 		格式2种：标签名:伪元素.类名    
 			   标签名.类名:伪元素
-		
 
+A pseudo-class selector is a way of accessing HTML items that aren't part of the document tree (remember the tree structure we talked about earlier?). 
+For instance, it's very easy to see where a link is in the tree. 
+But where would you find information about whether a link had been clicked on or not? It isn't there!
+
+Pseudo-class selectors let us style these kinds of changes in our HTML document. 
+For example, we saw we could change a link's text-decoration property to make it something other than blue and underlined. 
+Using pseudo selectors, you can control the appearance of unvisited and visited links—even links the user is hovering over but hasn't clicked!	
+
+Another useful pseudo-class selector is first-child. 
+It's used to apply styling to only the elements that are the first children of their parents. 
+For instance:
+	p:first-child {
+    	color: red;
+	}
+	Would make all paragraphs that are the first children of their parent elements red.
 -->
 
 <!-- 方式4 -->

@@ -12,14 +12,54 @@
 	padding：内边距，即盒子中的文本内容距离盒子边框的距离
 	margin：外边距，即盒子的边框距离这个盒子外面其他标签(区域)上下左右的距离
 
+the z-index property. 
+	You can think of the z-index as a measure of importance: 
+	the higher an element's z-index, the higher it will be "stacked" on the page. Giving your header a z-index of 
+	1 while not giving any of the other elements a z-index ensures that your header will sit "on top of" your other 
+	elements and won't get stuck behind them.
+
 盒子模型有两种定位技术：
-	1.漂浮 float
-	2.position
+	1.display
+	2.漂浮 float
+		When you float an element on the page, you're telling the webpage: "I'm about to tell you where to put this element, but you have to put it into the flow of other elements."
+		clear- 该属性的值指出了不允许有浮动对象的边。用以消除文档流它前面元素的float的效果。
+			clear:right - 不允许左边有浮动对象
+			clear:both - 不允许两边有浮动对象
+	3.position
 		a.absolute: 脱离文档流
 		b.relative：不脱离文档流，还占着原来的位置，但是显示的位置变化了。
-		注：位置是相对于设置了position值得父区域，如果父区域没有设置position，那么就相对于<body>标签。
+			Relative positioning is more straightforward: it tells the element to move relative to where it would have landed if it just had the default static positioning.
+		注：位置是相对于设置了position值得父区域，如果父区域没有设置position，那么就相对于<html>标签。
+		c:fixed
+			fixed positioning anchors an element to the browser window—you can think of it as gluing the element to the screen. 
+			If you scroll up and down, the fixed element stays put even as other elements scroll past.
 	
+the display property, the first positioning property we'll learn. We'll learn about four possible values.
+	block: This makes the element a block box. It won't let anything sit next to it on the page! It takes up the full width.
 	
+	inline-block: This makes the element a block box, but will allow other elements to sit next to it on the same line.
+	
+	inline: This makes the element sit on the same line as another element, but without formatting it like a block. It only takes up as much width as it needs (not the whole line).
+			The inline value places all your elements next to one another, but not as blocks: they don't keep their dimensions.
+			The good news is, inline places all your elements on a single line. The bad news is that it doesn't maintain their "box"ness: as you saw, all your <div>s got squished to the smallest possible width!
+			The inline display value is better suited for HTML elements that are blocks by default, such as headers and paragraphs.
+	none: This makes the element and its content disappear from the page entirely!
+			As you might expect, this prevents the page from displaying the selected element. 
+			As you might not expect, this removes the selected element from the page entirely, including any children and any content. Poof! Gone! 
+			(But not gone forever—changing the display value away from none will bring everything back.)
+
+
+each box is made of layers. From the outermost to the innermost:
+	The margin is the space around the element. The larger the margin, the more space between our element and the elements around it. We can adjust the margin to move our HTML elements closer to or farther from each other.
+	
+	The border is the edge of the element. It's what we've been making visible every time we set the border property.
+	
+	The padding is the spacing between the content and the border. We can adjust this value with CSS to move the border closer to or farther from the content.
+	
+	The content is the actual "stuff" in the box. If we're talking about a <p> element, the "stuff" is the text of the paragraph.
+
+You'll see abbreviations like TM, TB, and TP in the diagram. These stand for "top margin," "top border," and "top padding." As we'll see, we can adjust the top, right, left, and bottom padding, border, and margin individually.
+
  -->
 <style type="text/css">  
 /*

@@ -16,7 +16,83 @@
 			 * 我们还想按照面向对象的思想编写js。
 			 * 就要先描述，在js中，可以用函数来模拟面对对象中的描述。
 			 * 
-			 * 
+			 * js的对象就是键值对，它本质就是一个字典。
+			 * Let's go back to the analogy of computer languages being like regular spoken languages. 
+			 * In English, you have nouns (which you can think of as "things") and verbs (which you can think of as "actions"). 
+			 * Until now, our nouns (data, such as numbers, strings, or variables) and verbs (functions) have been separate.
+			 * No longer!
+			 * Using objects, we can put our information and the functions that use that information in the same place.
+			 * You can also think of objects as combinations of key-value pairs (like arrays), only their keys don't have to be numbers like 0, 1, or 2: they can be strings and variables.
+			 * Objects are just collections of information (keys and values) between curly braces, like this:
+				 var myObject = {
+				     key: value,
+				     key: value,
+				     key: value
+				 };
+			 * There are two ways to create an object: 
+				 1. using object literal notation
+				 	var myObj = {
+						    type: 'fancy',
+						    disposition: 'sunny'
+						};
+
+					var emptyObj = {};
+				 2. using the object constructor.
+				 	var myObj = new Object();
+				 3. You can add keys to your object after you've created it in two ways:
+					 myObj["name"] = "Charlie";
+					 myObj.name = "Charlie";
+			 *
+			 * Method
+			 * Our setAge method works great for bob because it updates bob.age, but what if we want to use it for other people?
+			 * It turns out we can make a method work for many objects using a new keyword, this. 
+			 * The keyword this acts as a placeholder, and will refer to whichever object called that method when the method is actually used.
+			 * Let's look at the method setAge (line 2) to see how this works. 
+			 * By using the keyword this, setAge will change the age property of any object that calls it. 
+			 * Previously, we had a specific object bob instead of the keyword this. But that limited the use of the method to just bob.
+			 
+			 Class:
+				 Let's start by introducing classes. We learned in the last course that constructors are a way to make objects, 
+				 but they actually do even more than that.
+				 When you make a constructor, you are in fact defining a new class. A class can be thought of as a type, 
+				 or a category of objects—kind of like how Number and String are types in JavaScript.
+			 
+				 Classes are very important in object-oriented programming. This is because a class tells us helpful information about objects, 
+				 and you can think of an object as a particular instance of a class.
+				 
+				 Prototype:
+					 In general, if you want to add a method to a class such that all members of the class can use it, 
+					 we use the following syntax to extend the prototype:
+						 className.prototype.newMethod = function() {
+							 statements;
+						 };
+				 Inheritance:
+					 Whenever this X is-a Y relationship exists, there's a good chance that we should be using inheritance.
+					 Remember, inheritance lets us see and use properties and methods from another class. 
+					 To say that Penguin inherits from Animal, we need to set Penguin's prototype to be Animal.
+					// set its prototype to be a new instance of Animal, and this is inheritance.
+					 Penguin.prototype = new Animal();
+				 
+				 prototype chain:
+					 The "prototype chain" in JavaScript knows this as well. 
+					 If JavaScript encounters something it can't find in the current class's methods or properties, 
+					 it looks up the prototype chain to see if it's defined in a class that it inherits from. 
+					 This keeps going upwards until it stops all the way at the top: the mighty Object.prototype (more on this later). 
+					 By default, all classes inherit directly from Object, unless we change the class's prototype, 
+					 like we've been doing for Penguin and Emperor.
+						// set up the prototype chain
+						 Penguin.prototype = new Animal();
+						 Emperor.prototype = new Penguin();
+				 
+				 Public:
+					 In JavaScript all properties of an object are automatically public. 
+					 Public means that they can be accessed outside the class. 
+					 Think of these properties as the information a class is willing to share.
+				 Private:
+					 The Person class has been modified to have a private variable called bankBalance. 
+					 Notice that it looks just like a normal variable, 
+					 but it is defined inside the constructor for Person without using this, 
+					 but instead using var. This makes bankBalance a private variable.
 			 */
 			/*
 			
@@ -29,6 +105,8 @@
 			2. new 对象
 			//通过描述进行对象的建立。 new.
 			var p  = new Person();
+			// 也可以通过Object这个内置的构造函数来创建对象，这样就不用自己实现构造方法
+			var obj = new Ojbect();
 			
 			3. 动态添加属性，可以使用this关键字
 			//动态给p对象添加属性。直接使用p.属性名即可。
