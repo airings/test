@@ -77,6 +77,23 @@ jdk1.5以后将同步和锁封装成了对象。
 并将操作锁的隐式方式定义到了该对象中，
 将隐式动作变成了显示动作。
 
+JDK1.5 中提供了多线程升级解决方案。
+将同步Synchronized替换成现实Lock操作。
+将Object中的wait，notify notifyAll，替换了Condition对象。
+该对象可以Lock锁 进行获取。
+该示例中，实现了本方只唤醒对方操作。
+
+Lock:替代了Synchronized
+	lock 
+	unlock
+	newCondition()
+
+Condition：替代了Object wait notify notifyAll
+	await();
+	signal();
+	signalAll();
+
+
 Lock接口： 出现替代了同步代码块或者同步函数。将同步的隐式锁操作变成显示锁操作。
 同时更为灵活。可以一个锁上加上多组监视器(即Condition对象)。
 lock():获取锁。

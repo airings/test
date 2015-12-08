@@ -1,4 +1,4 @@
-package com.zxyairings.codelib.multithread;
+ package com.zxyairings.codelib.multithread;
 
 /*
 join:
@@ -6,7 +6,7 @@ join:
 
 join可以用来临时加入线程执行。
 
-线程优先级
+线程优先级: 抢cpu资源的频率
 	1 到 10
 	5 是默认
 

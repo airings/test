@@ -26,6 +26,8 @@ package com.zxyairings.codelib.multithread;
 
 当时强制动作会发生了InterruptedException，记得要处理，一般可以在这里改变标记。
 
+设置后台线程
+
 */
 class StopThread implements Runnable
 {

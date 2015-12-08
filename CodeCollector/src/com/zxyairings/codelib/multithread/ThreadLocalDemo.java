@@ -18,7 +18,7 @@ A,B是两个模块
 如何实现线程范围内的共享数据的独立？
 使用Thread作为key，将共享数据作为value
 
-
+MyThreadScopeData 可以隐藏 ThreadLocal
 */
 public class ThreadLocalDemo {
 
@@ -74,7 +74,7 @@ public class ThreadLocalDemo {
 		}		
 	}
 	
-	class MyThreadScopeData{
+	static class MyThreadScopeData{
 		private MyThreadScopeData(){}
 		public static /*synchronized*/ MyThreadScopeData getThreadInstance(){
 			MyThreadScopeData instance = map.get();
