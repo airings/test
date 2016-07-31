@@ -59,7 +59,6 @@ def upload():
   return redirect(url_for('index'))
 
 
-
 # This route is expecting a parameter containing the name
 # of a file. Then it will locate that file on the upload
 # directory and show it on the browser, so if the user uploads
