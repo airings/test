@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+
+{% block left_content %}
+<link rel=stylesheet type=text/css href="{{ url_for('static', filename='style.css') }}">
+<div class=page>
+  <h1>Reconcile</h1>
+    {{ tables[0]|safe }}
+</div>
+{% endblock %}
+
+{% block right_content1 %}
+<div class=page>
+    {{ tables[1]|safe }}
+</div>
+{% endblock %}
+							
+{% block right_content2 %}
+
+{% endblock %}
+
+{% block flashMessage %}
+
+      {% with messages = get_flashed_messages() %}
+         {% if messages %}
+           
+               {% for message in messages %}
+               <p>{{ message }}</p>
+               {% endfor %}
+            
+         {% endif %}
+      {% endwith %}
+
+{% endblock %}
